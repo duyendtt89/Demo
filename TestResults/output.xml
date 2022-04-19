@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.9.5 on win32)" generated="20220419 14:15:07.421" rpa="false" schemaversion="2">
+<suite id="s1" name="ArticleCheck" source="C:\Users\MyPC\Documents\GitHub\QuantumAutoCheck\TestPlan\SmokeTest\ArticleCheck.robot">
+<test id="s1-t1" name="Scenario: Check the title of Article">
+<kw name="Given I access to Article page via actual url: ${actualPath}" library="Article_Steps" sourcename="I access to Article page via actual url: ${actualPath}">
+<kw name="Start Informa site with actual url" library="SetUp">
+<arg>${actualPath}</arg>
+<kw name="Get Chromedriver Path" library="chromedriversync">
+<var>${chromedriver_path}</var>
+<msg timestamp="20220419 14:15:07.633" level="INFO">
+</msg>
+<msg timestamp="20220419 14:15:07.633" level="INFO">====== WebDriver manager ======</msg>
+<msg timestamp="20220419 14:15:07.995" level="INFO">Current google-chrome version is 100.0.4896</msg>
+<msg timestamp="20220419 14:15:07.995" level="INFO">Get LATEST chromedriver version for 100.0.4896 google-chrome</msg>
+<msg timestamp="20220419 14:15:08.288" level="INFO">Trying to download new driver from https://chromedriver.storage.googleapis.com/100.0.4896.60/chromedriver_win32.zip</msg>
+<msg timestamp="20220419 14:15:09.601" level="INFO">Driver has been saved in cache [C:\Users\MyPC\.wdm\drivers\chromedriver\win32\100.0.4896.60]</msg>
+<msg timestamp="20220419 14:15:09.601" level="INFO">C:\Users\MyPC\.wdm\drivers\chromedriver\win32\100.0.4896.60\chromedriver.exe</msg>
+<msg timestamp="20220419 14:15:09.601" level="INFO">====== WebDriver manager ======
+Current google-chrome version is 100.0.4896
+Get LATEST chromedriver version for 100.0.4896 google-chrome
+Trying to download new driver from https://chromedriver.storage.googleapis.com/100.0.4896.60/chromedriver_win32.zip
+Driver has been saved in cache [C:\Users\MyPC\.wdm\drivers\chromedriver\win32\100.0.4896.60]</msg>
+<msg timestamp="20220419 14:15:09.602" level="INFO">${chromedriver_path} = C:\Users\MyPC\.wdm\drivers\chromedriver\win32\100.0.4896.60\chromedriver.exe</msg>
+<status status="PASS" starttime="20220419 14:15:07.633" endtime="20220419 14:15:09.602"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${quantumStage}${actualPath}</arg>
+<arg>chrome</arg>
+<arg>executable_path=${chromedriver_path}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220419 14:15:09.602" level="INFO">Opening browser 'chrome' to base url 'https://stage.quantumbusinessnews.com//applications/test-article-1'.</msg>
+<status status="PASS" starttime="20220419 14:15:09.602" endtime="20220419 14:15:14.412"/>
+</kw>
+<status status="PASS" starttime="20220419 14:15:07.632" endtime="20220419 14:15:14.412"/>
+</kw>
+<status status="PASS" starttime="20220419 14:15:07.632" endtime="20220419 14:15:14.412"/>
+</kw>
+<kw name="Then I will see the article title as: ${aticleTitle}" library="Article_Steps" sourcename="I will see the article title as: ${aticleTitle}">
+<kw name="Check title of Article should as:" library="CheckArticle_Helpers">
+<arg>${aticleTitle}</arg>
+<kw name="Wait element in 5 seconds" library="WaitKeywords">
+<arg>${headerLocator}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${elementLocator}</arg>
+<arg>5s</arg>
+<arg>element: ${elementLocator} not visible after 5 seconds</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220419 14:15:14.414" endtime="20220419 14:15:14.441"/>
+</kw>
+<status status="PASS" starttime="20220419 14:15:14.414" endtime="20220419 14:15:14.441"/>
+</kw>
+<kw name="Title Of Page Should Contain" library="AssertKeywords">
+<arg>${articleTitle}</arg>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${headerLocator}</arg>
+<arg>${titleText}</arg>
+<arg>${titleText} not found</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20220419 14:15:14.443" level="INFO">Verifying element '//h1' contains exact text 'Test Article 1'.</msg>
+<status status="PASS" starttime="20220419 14:15:14.442" endtime="20220419 14:15:14.460"/>
+</kw>
+<status status="PASS" starttime="20220419 14:15:14.442" endtime="20220419 14:15:14.460"/>
+</kw>
+<status status="PASS" starttime="20220419 14:15:14.413" endtime="20220419 14:15:14.460"/>
+</kw>
+<status status="PASS" starttime="20220419 14:15:14.413" endtime="20220419 14:15:14.460"/>
+</kw>
+<kw name="End TestCase" library="SetUp" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220419 14:15:14.461" endtime="20220419 14:15:16.586"/>
+</kw>
+<status status="PASS" starttime="20220419 14:15:14.461" endtime="20220419 14:15:16.587"/>
+</kw>
+<doc>Check the title of article</doc>
+<tag>SmokeTest</tag>
+<tag>Validation</tag>
+<status status="PASS" starttime="20220419 14:15:07.631" endtime="20220419 14:15:16.588"/>
+</test>
+<test id="s1-t2" name="Scenario: Check elements of Article">
+<kw name="Given I access to Article page via actual url: ${actualPath}" library="Article_Steps" sourcename="I access to Article page via actual url: ${actualPath}">
+<kw name="Start Informa site with actual url" library="SetUp">
+<arg>${actualPath}</arg>
+<kw name="Get Chromedriver Path" library="chromedriversync">
+<var>${chromedriver_path}</var>
+<msg timestamp="20220419 14:15:16.592" level="INFO">
+</msg>
+<msg timestamp="20220419 14:15:16.592" level="INFO">====== WebDriver manager ======</msg>
+<msg timestamp="20220419 14:15:16.954" level="INFO">Current google-chrome version is 100.0.4896</msg>
+<msg timestamp="20220419 14:15:16.954" level="INFO">Get LATEST chromedriver version for 100.0.4896 google-chrome</msg>
+<msg timestamp="20220419 14:15:17.187" level="INFO">Trying to download new driver from https://chromedriver.storage.googleapis.com/100.0.4896.60/chromedriver_win32.zip</msg>
+<msg timestamp="20220419 14:15:18.510" level="INFO">Driver has been saved in cache [C:\Users\MyPC\.wdm\drivers\chromedriver\win32\100.0.4896.60]</msg>
+<msg timestamp="20220419 14:15:18.510" level="INFO">C:\Users\MyPC\.wdm\drivers\chromedriver\win32\100.0.4896.60\chromedriver.exe</msg>
+<msg timestamp="20220419 14:15:18.510" level="INFO">${chromedriver_path} = C:\Users\MyPC\.wdm\drivers\chromedriver\win32\100.0.4896.60\chromedriver.exe</msg>
+<status status="PASS" starttime="20220419 14:15:16.592" endtime="20220419 14:15:18.510"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${quantumStage}${actualPath}</arg>
+<arg>chrome</arg>
+<arg>executable_path=${chromedriver_path}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220419 14:15:18.511" level="INFO">Opening browser 'chrome' to base url 'https://stage.quantumbusinessnews.com//applications/test-article-1'.</msg>
+<status status="PASS" starttime="20220419 14:15:18.511" endtime="20220419 14:15:21.962"/>
+</kw>
+<status status="PASS" starttime="20220419 14:15:16.592" endtime="20220419 14:15:21.962"/>
+</kw>
+<status status="PASS" starttime="20220419 14:15:16.591" endtime="20220419 14:15:21.962"/>
+</kw>
+<kw name="Then I will see the article title as: ${aticleTitle}" library="Article_Steps" sourcename="I will see the article title as: ${aticleTitle}">
+<kw name="Check title of Article should as:" library="CheckArticle_Helpers">
+<arg>${aticleTitle}</arg>
+<kw name="Wait element in 5 seconds" library="WaitKeywords">
+<arg>${headerLocator}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${elementLocator}</arg>
+<arg>5s</arg>
+<arg>element: ${elementLocator} not visible after 5 seconds</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220419 14:15:21.964" endtime="20220419 14:15:21.988"/>
+</kw>
+<status status="PASS" starttime="20220419 14:15:21.964" endtime="20220419 14:15:21.988"/>
+</kw>
+<kw name="Title Of Page Should Contain" library="AssertKeywords">
+<arg>${articleTitle}</arg>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${headerLocator}</arg>
+<arg>${titleText}</arg>
+<arg>${titleText} not found</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20220419 14:15:21.989" level="INFO">Verifying element '//h1' contains exact text 'Test Article 1'.</msg>
+<status status="PASS" starttime="20220419 14:15:21.989" endtime="20220419 14:15:22.012"/>
+</kw>
+<status status="PASS" starttime="20220419 14:15:21.988" endtime="20220419 14:15:22.012"/>
+</kw>
+<status status="PASS" starttime="20220419 14:15:21.963" endtime="20220419 14:15:22.013"/>
+</kw>
+<status status="PASS" starttime="20220419 14:15:21.963" endtime="20220419 14:15:22.013"/>
+</kw>
+<kw name="And I will see the Publish Date should be: April 21, 2022" library="Article_Steps" sourcename="I will see the Publish Date should be: ${publishDate}">
+<kw name="Check the Publish Date should be:" library="CheckArticle_Helpers">
+<arg>${publishDate}</arg>
+<kw name="Set Variable" library="BuiltIn">
+<var>${publishDateLocator}</var>
+<arg>//p[text()='${dateTime}']</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20220419 14:15:22.016" level="INFO">${publishDateLocator} = //p[text()='April 21, 2022']</msg>
+<status status="PASS" starttime="20220419 14:15:22.016" endtime="20220419 14:15:22.016"/>
+</kw>
+<kw name="Wait element in 5 seconds" library="WaitKeywords">
+<arg>${publishDateLocator}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${elementLocator}</arg>
+<arg>5s</arg>
+<arg>element: ${elementLocator} not visible after 5 seconds</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20220419 14:15:27.228" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20220419 14:15:27.229" level="FAIL">element: //p[text()='April 21, 2022'] not visible after 5 seconds</msg>
+<status status="FAIL" starttime="20220419 14:15:22.017" endtime="20220419 14:15:27.229"/>
+</kw>
+<status status="FAIL" starttime="20220419 14:15:22.016" endtime="20220419 14:15:27.231"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${publishDateLocator}</arg>
+<arg>${dateTime}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="NOT RUN" starttime="20220419 14:15:27.231" endtime="20220419 14:15:27.231"/>
+</kw>
+<status status="FAIL" starttime="20220419 14:15:22.015" endtime="20220419 14:15:27.231"/>
+</kw>
+<status status="FAIL" starttime="20220419 14:15:22.014" endtime="20220419 14:15:27.231"/>
+</kw>
+<kw name="End TestCase" library="SetUp" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220419 14:15:27.232" endtime="20220419 14:15:29.372"/>
+</kw>
+<status status="PASS" starttime="20220419 14:15:27.232" endtime="20220419 14:15:29.372"/>
+</kw>
+<doc>Check the title of article</doc>
+<tag>SmokeTest</tag>
+<tag>Validation</tag>
+<status status="FAIL" starttime="20220419 14:15:16.590" endtime="20220419 14:15:29.372">element: //p[text()='April 21, 2022'] not visible after 5 seconds</status>
+</test>
+<status status="FAIL" starttime="20220419 14:15:07.423" endtime="20220419 14:15:29.373"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="1" skip="0">SmokeTest</stat>
+<stat pass="1" fail="1" skip="0">Validation</stat>
+</tag>
+<suite>
+<stat pass="1" fail="1" skip="0" id="s1" name="ArticleCheck">ArticleCheck</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
